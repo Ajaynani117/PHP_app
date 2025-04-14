@@ -27,7 +27,7 @@ pipeline {
            agent any
            steps{
                script{
-                    sshagent(['ssh-key']){
+                    sshagent(['DEPLOY_SERVER']){
                          withCredentials([usernamePassword(credentialsId: 'docker_credintial', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                          sh "scp -o StrictHostKeyChecking=no -r docker-files ${DEPLOY_SERVER_IP}:/home/ec2-user"
                          sh "ssh -o StrictHostKeyChecking=no ${DEPLOY_SERVER_IP} 'bash ~/docker-files/docker-script.sh'"
