@@ -1,5 +1,5 @@
 pipeline {
-   agent 
+   agent any
   environment{
       BUILD_SERVER_IP='ec2-user@44.220.141.178'
        IMAGE_NAME='ajaynani117/test:php$BUILD_NUMBER'
